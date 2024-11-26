@@ -15,12 +15,13 @@
  * To make the second one happen, the number to change
  * is the first argument to `repeat`, currently set at 10.
  */
+
 const gridWidth = 10;
 let count = 0;
 while (count <= gridWidth * gridWidth) {
   const canvas = document.querySelector('.canvas');
   const div = document.createElement('div');
-  div.className = 'square color-5';
+  div.className = 'square color-8';
   canvas.appendChild(div);
   count++;
 }
@@ -48,8 +49,20 @@ while (count <= gridWidth * gridWidth) {
 
 // Add queries for all your squares, palette colors, and brush here.
 // (Note the singular or plural used in that sentence!)
+const paletteColors = document.querySelectorAll('.palette-color')
+const brush = document.querySelector('#current-brush')
+for(let color of paletteColors){
+  color.addEventListener('click', ()=>{
+      brush.classList.replace(brush.classList[0], color.classList[1])
+  })
+}
 
-
+const canvas = document.querySelectorAll('.square')
+for(let square of canvas){
+  square.addEventListener('click', ()=>{
+    square.classList.replace(square.classList[1], brush.classList[0])
+  })
+}
 
 /****************************
  * EVENT LISTENER FUNCTIONS *
