@@ -60,7 +60,7 @@ for(let color of paletteColors){
 const canvas = document.querySelectorAll('.square')
 for(let square of canvas){
   square.addEventListener('click', ()=>{
-    square.classList.replace(square.classList[1], brush.classList[0])
+    square.classList.replace(square.classList[1], brush.classList[0]) //
   })
 }
 
